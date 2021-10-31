@@ -1,51 +1,52 @@
-import React, { useState } from 'react'
-//import { login } from '../../services/login'
-import './annonce.css';
-const annonce = () => {
-    /*const [form, setForm] = useState({
-        email: '',
-        password: ''
-    })
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        await login(form);
-    }
-*/
+import React from 'react';
+import './fonts/material-icon/css/material-design-iconic-font.min.css';
+import './css/style.css';
+
+export default function Annonce() {
     return (
+        <div class="main">
 
-        <div class="form-style-3">
-            <form>
-                <fieldset><legend></legend>
-                    <label for="field4"><span>Categorie</span><select name="Categorie" class="select-field">
-                        <option value="Informatique & Smartphone">Appointment</option>
-                        <option value="Jeux & consoles">Interview</option>
-                        <option value="Tv & Multimedia">Regarding a post</option>
-                    </select></label>
-                    <label for="field2"><span>Libellé <span class="required">*</span></span><input type="email" class="input-field" name="field2" value="" /></label>
-                    <label for="field6"><span>Description <span class="required">*</span></span><textarea name="field6" class="textarea-field"></textarea></label>
-                </fieldset>
-
-                <fieldset><legend>détails</legend>
-                    <div>
-                        <input type="radio" id="TypeVente"
-                            name="typevente" value="encheres" />
-                        <label for="TypeVente">aux Enchères</label>
-
-                        <input type="radio" id="Normale"
-                            name="typevente" value="normale" />
-                        <label for="Normale">Normale</label>
+        <div class="container">
+            <form method="POST" class="appointment-form" id="appointment-form">
+                <h2>education appointment form</h2>
+                <div class="form-group-1">
+                    <input type="text" name="title" id="title" placeholder="Title" required />
+                    <input type="text" name="name" id="name" placeholder="Your Name" required />
+                    <input type="email" name="email" id="email" placeholder="Email" required />
+                    <input type="number" name="phone_number" id="phone_number" placeholder="Phone number" required />
+                    <div class="select-list">
+                        <select name="course_type" id="course_type">
+                            <option slected value="">Course Type</option>
+                            <option value="society">Society</option>
+                            <option value="language">Language</option>
+                        </select>
                     </div>
-                    <label for="field1"><span>Prix initiale <span class="required">*</span></span><input type="text" class="input-field" name="field1" value="" /></label>
-                    <input type="checkbox" id="scales" name="paiement"></input>
-                    <label for="scales">Avec Paiement</label>
-                    <input type="checkbox" id="scales" name="livraison"></input>
-                    <label for="scales">Avec Livraison</label>
-                    <label><span> </span><input type="submit" value="Submit" /></label>
-                </fieldset>
+                </div>
+                <div class="form-group-2">
+                    <h3>How would you like to bo located ?</h3>
+                    <div class="select-list">
+                        <select name="confirm_type" id="confirm_type">
+                            <option seleected value="">By phone</option>
+                            <option value="by_email">By email</option>
+                        </select>
+                    </div>
+                    <div class="select-list">
+                        <select name="hour_appointment" id="hour_appointment">
+                            <option seleected value="">Hours : 8am 10pm</option>
+                            <option value="9h-11h">Hours : 9am 11pm</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                    <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree to the  <a href="#" class="term-service">Terms and Conditions</a></label>
+                </div>
+                <div class="form-submit">
+                    <input type="submit" name="submit" id="submit" class="submit" value="Request an appointment" />
+                </div>
             </form>
         </div>
 
+    </div>
     )
 }
-
-export default annonce;
