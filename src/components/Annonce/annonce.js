@@ -1,24 +1,25 @@
 import React from 'react';
-import './fonts/material-icon/css/material-design-iconic-font.min.css';
-import './css/style.css';
+import '../../constants/fonts/material-icon/css/material-design-iconic-font.min.css';
+import '../../constants/css/style.css';
 
 export default function Annonce() {
     return (
         <div class="main">
 
         <div class="container">
-            <form method="POST" class="appointment-form" id="appointment-form">
+            <form>
                 <h2>education appointment form</h2>
                 <div class="form-group-1">
-                    <input type="text" name="title" id="title" placeholder="Title" required />
-                    <input type="text" name="name" id="name" placeholder="Your Name" required />
-                    <input type="email" name="email" id="email" placeholder="Email" required />
+                    <input type="text" name="Nom" id="Nom" placeholder="Titre de l'annonce" required />
+                    <input type="text" name="description" id="description" placeholder="Description" required />
+                    <input type="number" name="prix" id="prix" placeholder="Prix Initial" required />
                     <input type="number" name="phone_number" id="phone_number" placeholder="Phone number" required />
                     <div class="select-list">
-                        <select name="course_type" id="course_type">
-                            <option slected value="">Course Type</option>
-                            <option value="society">Society</option>
-                            <option value="language">Language</option>
+                        <select name="Categorie" id="Categorie">
+                            <option slected value="">Categorie</option>
+                            <option value="society">Informatique & Multemedia</option>
+                            <option value="language">Image & son</option>
+                            <option value="language">Voiture</option>
                         </select>
                     </div>
                 </div>
