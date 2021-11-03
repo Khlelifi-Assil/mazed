@@ -6,7 +6,6 @@ import Register from '../SignUp/index';
 import Annonce from '../Annonce/annonce';
 import Admin from '../Admin/src/App' ;
 import Contact from '../Contact/contact';
-
 function App() {
   
   return (
