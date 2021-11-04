@@ -1,11 +1,22 @@
-import firebase from 'firebase';
 import "firebase/auth";
-import {auth} from './firebase';
 import 'firebase/firestore';
+import 'firebase/storage';
 import db from './firestore';
 
 export const annonce = async({titre, description, prix, telephone, categorie, paiement, livraison, photos})=>{
-    
+  //db.ref('/images/${photos.name}').put(photos);
+  const url='';
+  var downloadurl='';
+  var ref = db.child('images/' + photos.name);
+  const uploadTask = ref.put(photos);
+
+  uploadTask.on("state_changed", console.log, console.error, () => {
+    ref
+      .getDownloadURL()
+      .then((url) => {
+        downloadurl=url;
+      });
+    });
       const annoncedb = db.collection("annonces").add({
         titre: titre, 
         description: description, 
@@ -14,7 +25,7 @@ export const annonce = async({titre, description, prix, telephone, categorie, pa
         categorie: categorie, 
         paiement: paiement, 
         livraison: livraison, 
-        photos: photos
+        photos: downloadurl
       });  
       
 
