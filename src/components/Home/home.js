@@ -59,7 +59,12 @@ const Frame = ({ titre,description,prix,date,livraison,paiement,telephone}) => {
                 <center>
                 <h1> {titre}</h1>
                  </center>
-                {livraison}
+                 <br/>
+                 <div class="div-info">
+                Paiement : {livraison} <br/>
+                livraison : {paiement} <br/>
+                Tel : {telephone}
+                </div>
                 <span class="hint-star star">
                     <i class="fa fa-star" aria-hidden="true"></i>
                     <i class="fa fa-star" aria-hidden="true"></i>
@@ -67,12 +72,12 @@ const Frame = ({ titre,description,prix,date,livraison,paiement,telephone}) => {
                     <i class="fa fa-star-half-o" aria-hidden="true"></i>
                     <i class="fa fa-star-o" aria-hidden="true"></i>
                 </span>
-                <p class="information">" Especially good for container gardening,  "</p>
+                
                 <div class="control">
                     <button class="btn">
                         <span class="price">{prix} TND</span>
                         <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-                        <span class="buy">Buy Now</span>
+                        <span class="buy">Enchérir</span>
                     </button>
                 </div>
             </div>
@@ -80,14 +85,10 @@ const Frame = ({ titre,description,prix,date,livraison,paiement,telephone}) => {
                 <img src="https://sc01.alicdn.com/kf/HTB1Cic9HFXXXXbZXpXXq6xXFXXX3/200006212/HTB1Cic9HFXXXXbZXpXXq6xXFXXX3.jpg" alt="Omar Dsoky" />
                 <div class="info">
                     <h2>The Description</h2>
-                    <ul>
-                        <li>Sun Needs: Full Sun</li>
-                        <li><strong>Soil Needs: </strong>Damp</li>
-                        <li><strong>Zones: </strong>9 - 11</li>
-                        <li><strong>Height: </strong>2 - 3 feet</li>
-                        <li><strong>Blooms in: </strong>Mid‑Summer - Mid‑Fall</li>
-                        <li><strong>Features: </strong>Tolerates heat</li>
-                    </ul>
+                    <center>
+                    {description}
+                    </center>
+                    
                 </div>
             </div>
         </div>

@@ -49,23 +49,23 @@ body {
     transform: translate(25px, -15px);
     font-family: 'Farsan', cursive;
     display: inline-block;
-    background: #FFA69E;
+    /*background: #FFA69E;*/
     border-radius: 5px;
     font-size: 14px;
     padding: 5px;
     color: #FFF;
     margin: 0;
-    animation: chan-sh 6s ease infinite;
+   /* animation: chan-sh 6s ease infinite;*/
 }
-
+/*
 @keyframes chan-sh {
     from {
-        content: 'free shipping';
+        content: 'Enchere en cours';
     }
     to {
-        content: 'New';
+        content: 'Nouveau';
     }
-}
+}*/
 
 /*Product Rating  */
 
@@ -190,7 +190,7 @@ body {
     text-align: left;
     font-size: 120%;
     cursor: no-drop;
-    color: #ffffff;
+    color: whitesmoke;
     height: 100%;
     width: 100%;
     left: 0;
@@ -198,7 +198,8 @@ body {
 }
 
 .info h2 {
-    text-align: center
+    text-align: center;
+    color :whitesmoke;
 }
 
 .product-image:hover .info {
@@ -207,6 +208,7 @@ body {
 
 .info ul li {
     transition: 0.3s ease;
+    color: #ffffff;
 }
 
 .info ul li:hover {
@@ -219,4 +221,12 @@ body {
 
 .product-image:hover img {
     transform: scale(1.2, 1.2);
+    color: whitesmoke;
+}
+.div-info {
+    font-family: cursive, sans-serif;
+    background-color: whitesmoke;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 20px 23px #e8ebe9;
 }
