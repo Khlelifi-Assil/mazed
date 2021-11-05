@@ -5,10 +5,20 @@ import db from './firestore';
 
 export const annonce = async({titre, description, prix, telephone, categorie, paiement, livraison, photos})=>{
   //db.ref('/images/${photos.name}').put(photos);
-  const url='';
+ /* const url='';
   var downloadurl='';
-  var ref = db.child('images/' + photos.name);
-  const uploadTask = ref.put(photos);
+
+  //var storage = firebase.storage();
+  var storageRef = storage.ref();
+  var uploadTask = storageRef.child('folder/' + file.name).put(file);
+
+
+
+
+
+
+ // var ref = db.child('images/' + photos.name);
+ // const uploadTask = ref.put(photos);
 
   uploadTask.on("state_changed", console.log, console.error, () => {
     ref
@@ -16,7 +26,7 @@ export const annonce = async({titre, description, prix, telephone, categorie, pa
       .then((url) => {
         downloadurl=url;
       });
-    });
+    });*/
       const annoncedb = db.collection("annonces").add({
         titre: titre, 
         description: description, 
@@ -25,7 +35,7 @@ export const annonce = async({titre, description, prix, telephone, categorie, pa
         categorie: categorie, 
         paiement: paiement, 
         livraison: livraison, 
-        photos: downloadurl
+        photos: photos
       });  
       
 
