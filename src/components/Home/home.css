@@ -1,17 +1,13 @@
 .box {
-    background-color: whitesmoke;
+    
     justify-items: stretch;
     display: grid;
   /*grid-template-columns: 120px 120px 120px;*/
   align-items: start;
-  justify-content: space-between;
   width: 100%;
     height: auto;
     padding: 0;
     margin: 4px auto;
-    
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
     box-sizing: border-box;
 
   
@@ -21,10 +17,9 @@
 }
 .left-side{
     overflow:auto; 
-    
     float: left;
+    width:25%;
     
-
 
     
  
