@@ -7,4 +7,5 @@ export const ADMIN = '/admin';
 export const PASSWORD_FORGET = '/pw-forget';
 export const CONTACT = '/contact';
 export const annonce = '/annonce';
-export const home = '/encherir';
+export const encherir = '/encherir';
+export const home = '/home';

@@ -7,10 +7,7 @@ import db from "../../services/firestore";
 import "./encherir.css";
 
 const Encherir = () => {
-   
-
   const [info, setInfo] = useState([]);
-
   // Start the fetch operation as soon as
   // the page loads
   window.addEventListener("load", () => {
