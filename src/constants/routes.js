@@ -8,4 +8,3 @@ export const PASSWORD_FORGET = '/pw-forget';
 export const CONTACT = '/contact';
 export const annonce = '/annonce';
 export const encherir = '/encherir';
-export const home = '/home';

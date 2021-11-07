@@ -1,7 +1,12 @@
+ /* eslint-disable */
 import React, {useState} from 'react';
 import '../../constants/fonts/material-icon/css/material-design-iconic-font.min.css';
 import '../../constants/css/style.css';
-import {annonce} from '../../services/annonce';
+import 'firebase/firestore';
+import 'firebase/storage';
+import firebase from '../../services/firebase';
+import db from '../../services/firestore';
+//import {annonce} from '../../services/annonce';
 
 const Annonce = () => {
     const [form,setForm] = useState({
@@ -14,11 +19,52 @@ const Annonce = () => {
         livraison: '', 
         photos: ''
     })
-    const handleSubmit = async(e)=>{
+   /* const handleSubmit = async(e)=>{
         e.preventDefault();
         await annonce(form);
-    }
+    }*/
+    const [img,setimg] = useState({
+        image: null,
+        progress:0,
+        downloadURL: null
+      })
     
+    const handleUpload = () =>{
+        // console.log(this.state.image);
+        let file = img.image;
+        var storage = firebase.storage();
+        var storageRef = storage.ref();
+        var uploadTask = storageRef.child('images/').put(file);
+      
+        uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
+          (snapshot) =>{
+            var progress = Math.round((snapshot.bytesTransferred/snapshot.totalBytes))*100
+            setimg({...img,progress: progress.value})
+          },(error) =>{
+            throw error
+          },() =>{
+            // uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) =>{
+      
+            uploadTask.snapshot.ref.getDownloadURL().then((url) =>{
+              setimg({
+                ...img, downloadURL: url
+              })
+            })
+                  
+         }
+       ) 
+      }
+      const handleSubmit  = () =>{
+db.collection("annonces").add({
+        titre: form.titre, 
+                description: form.description, 
+                prix: form.prix, 
+                telephone: form.telephone, 
+                categorie: form.categorie, 
+                paiement: form.paiement, 
+                livraison: form.livraison, 
+                photos: img.downloadURL
+      })};  
 
     return (
         <div class="main">
@@ -53,8 +99,8 @@ const Annonce = () => {
                         <select name="paiement" id="paiement"
                         onChange={(e) =>
                             setForm({ ...form, paiement: e.target.value })}>
-                             <option slected value=""> PAiement</option>
-                            <option slected value="Avec Paiement">Avec Paiement</option>
+                             <option slected value=""> Paiement</option>
+                            <option  value="Avec Paiement">Avec Paiement</option>
                             <option value="Sans Paiement">Sans Paiement</option>
                         </select>
                     </div>
@@ -70,14 +116,16 @@ const Annonce = () => {
                 </div>
                 <div>
          <label for="file">Photos</label>
-         <input type="file" id="file" name="file" multiple accept=".png, .jpg, .jpeg"/>
+         <input type="file" id="file" name="file" multiple accept=".png, .jpg, .jpeg" 
+         onChange={(e) =>
+            setimg({ ...img, image: e.target.files[0] })}/>
        </div>
                 <div class="form-check">
                     <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                     <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree to the  <a href="#" class="term-service">Terms and Conditions</a></label>
                 </div>
                 <div class="form-submit">
-                    <input type="submit" name="submit" id="submit" class="submit" value="Request an appointment" />
+                    <input type="submit" name="submit" id="submit" class="submit" value="Request an appointment" onClick={handleUpload}/>
                 </div>
             </form>
         </div>

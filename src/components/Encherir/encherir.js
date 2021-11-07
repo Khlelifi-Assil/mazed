@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 //import Frame from 'react-frame-component';
-import Popup from "reactjs-popup";
-import firebase from "firebase";
+
 import "firebase/firestore";
 import db from "../../services/firestore";
 import "./encherir.css";

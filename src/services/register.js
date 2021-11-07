@@ -1,3 +1,4 @@
+ /* eslint-disable */
 import firebase from 'firebase';
 import "firebase/auth";
 import {auth} from './firebase';
@@ -21,4 +22,3 @@ export const register = async({email, nom, prenom, password, tel, adresse})=>{
       return resp.user;
 
 }
-
